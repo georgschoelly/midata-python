@@ -24,6 +24,7 @@ if not auth_info:
 user = midata.get_person(auth_info, auth_info.user_id)
 
 print(user.first_name)
-for group in user.groups:
-    print("  {} {}".format(group['group_type'], group['name']))
+for role in user.roles:
+    group = role.group
+    print("  {} in {} {}".format(role.description, group.group_type, group.name))
 
